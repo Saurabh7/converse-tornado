@@ -83,6 +83,11 @@ class UpdateHandler(BaseHandler):
     def on_connection_close(self):
         chatRoom.removeUser(self.sendUpdates, self.current_user)
 
+class privateUpdateHandler(BaseHandler):
+    @tornado.web.authenticated
+    @tornado.web.asynchronous
+    def post(self):
+
 
 class AuthLoginHandler(BaseHandler, tornado.auth.GoogleMixin):
     @tornado.web.asynchronous
